@@ -1,0 +1,110 @@
+'''
+Program: invoice.py
+Author: Joshua M. McGinley
+Last date modified: 11/02/2022
+
+Write an Invoice class with the following data members, which are identified as required or optional in the
+constructor.
+
+    invoice_id - required
+    customer_id - required
+    last_name - required
+    first_name - required
+    phone_number - required
+    address - required
+    items_with_price - dictionary, optional
+
+Methods:
+
+    constructor that sets all required items as listed above and uses appropriate default values for optional
+    built-ins (str() and repr())
+    add_item() that adds an item to items_with_price dictionary (Recall: what is the dictionary function to add?)
+    create_invoice() that prints each item and price, then a total with tax calculated
+
+Driver:
+
+# Driver code
+invoice = Invoice(1, 123, '1313 Disneyland Dr, Anaheim, CA 92802' ,'Mouse', 'Minnie', '555-867-5309')
+invoice.add_item({'iPad': 799.99})
+invoice.add_item({'Surface': 999.99})
+invoice.create_invoice()
+
+Output:
+iPad.....$799.99
+Surface.....$999.99
+Tax......... $108.00
+Total.......$1907.98
+'''
+
+class Invoice:
+
+    item_dict = dict()
+    new_dict - dict()
+
+    def __init__(self, cid, iid, addy, fname, lname, pnum,):
+        name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-")
+        phone_number_characters = set("1234567890-()")
+        #customer_id_characters = set("1234567890")
+        #invoice_id_characters = set("1234567890")
+        if not (name_characters.issuperset(lname) and name_characters.issuperset(fname)):
+            raise ValueError
+        if not phone_number_characters.issuperset(pnum):
+            raise ValueError
+        #if not customer_id_characters.issuperset(cid):
+        #    raise ValueError
+        #if not invoice_id_characters.issuperset(iid):
+        #    raise ValueError
+        self.invoice_id = iid
+        self.customer_id = cid
+        self.last_name = lname
+        self.first_name = fname
+        self.phone_number = pnum
+        self.address = addy
+
+    def __str__(self):
+        return self.invoice_id + self.customer_id + ": " + self.address + ", " + self.last_name + self.first_name + " Phone: " + self.phone_number
+
+    def __repr__(self):
+        return  'Invoice({},{},{},{},{},{})'.format(self.invoice_id, self.customer_id, self.address, self.last_name, self.first_name, self.phone_number)
+
+    def change_last_name(self, name):
+        self.last_name = name
+
+    def change_first_name(self, name):
+        self.first_name = name
+
+    def change_phone_number(self, number):
+        self.phone_number = number
+
+    def change_address(self, addy):
+        self.address = addy
+
+
+    def add_item(self, item_dict ={' ': 0.0}):
+        new_dict.update(item_dict)
+        print(item_dict)
+        print(new_dict)
+        #return
+
+    #while (index < num_scores):
+     #   score = int(input('Enter score: '))
+      #  ver_key = str('score' + str(index + 1))
+       # scores_dict.update({ver_key:score})
+        #index = index + 1
+    #return scores_dict
+
+    #def average_scores(scores_dict):
+        #x = len(scores_dict)
+        #accum = 0
+        #for value in scores_dict.values():
+            #accum = accum + value
+        #average = accum / x
+        #return average
+
+
+# Driver code
+if __name__== "__main__":
+    invoice = Invoice(1, 123, '1313 Disneyland Dr, Anaheim, CA 92802', 'Mouse', 'Minnie', '555-867-5309')
+    invoice.add_item({'iPad': 799.99})
+    invoice.add_item({'Surface': 999.99})
+    #invoice.create_invoice()

@@ -38,10 +38,7 @@ Total.......$1907.98
 
 class Invoice:
 
-    item_dict = dict()
-    new_dict - dict()
-
-    def __init__(self, cid, iid, addy, fname, lname, pnum,):
+    def __init__(self, cid, iid, addy, fname, lname, pnum, item_dict = dict()):
         name_characters = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'-")
         phone_number_characters = set("1234567890-()")
         #customer_id_characters = set("1234567890")
@@ -60,7 +57,7 @@ class Invoice:
         self.first_name = fname
         self.phone_number = pnum
         self.address = addy
-
+        self.items = item_dict
     def __str__(self):
         return self.invoice_id + self.customer_id + ": " + self.address + ", " + self.last_name + self.first_name + " Phone: " + self.phone_number
 
@@ -80,11 +77,9 @@ class Invoice:
         self.address = addy
 
 
-    def add_item(self, item_dict ={' ': 0.0}):
-        new_dict.update(item_dict)
-        print(item_dict)
-        print(new_dict)
-        #return
+    def add_item(self, item_dict = {' ':0.0}):
+        self.items.update(item_dict)
+        print(self.items)
 
     #while (index < num_scores):
      #   score = int(input('Enter score: '))

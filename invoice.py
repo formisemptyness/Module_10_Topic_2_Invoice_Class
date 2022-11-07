@@ -79,7 +79,7 @@ class Invoice:
 
     def add_item(self, item_dict = {' ':0.0}):
         self.items.update(item_dict)
-        print(self.items)
+
 
     #while (index < num_scores):
      #   score = int(input('Enter score: '))
@@ -88,8 +88,16 @@ class Invoice:
         #index = index + 1
     #return scores_dict
 
-    #def average_scores(scores_dict):
-        #x = len(scores_dict)
+    def create_invoice(self):
+        tax = .06
+        subtotal = (sum(self.items.values()))
+        tax = (subtotal * tax)
+        tax = round(tax)
+        total = subtotal + tax
+        for key, value in self.items.items():
+            print(key,'....${0:.2f}'.format(value))
+        print('Tax.........${0:.2f}'.format(tax))
+        print('Total........${0:.2f}'.format(total))
         #accum = 0
         #for value in scores_dict.values():
             #accum = accum + value
@@ -102,4 +110,5 @@ if __name__== "__main__":
     invoice = Invoice(1, 123, '1313 Disneyland Dr, Anaheim, CA 92802', 'Mouse', 'Minnie', '555-867-5309')
     invoice.add_item({'iPad': 799.99})
     invoice.add_item({'Surface': 999.99})
-    #invoice.create_invoice()
+    invoice.create_invoice()
+    #print(invoice.items)

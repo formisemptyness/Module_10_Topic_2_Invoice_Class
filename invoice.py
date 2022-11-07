@@ -81,13 +81,6 @@ class Invoice:
         self.items.update(item_dict)
 
 
-    #while (index < num_scores):
-     #   score = int(input('Enter score: '))
-      #  ver_key = str('score' + str(index + 1))
-       # scores_dict.update({ver_key:score})
-        #index = index + 1
-    #return scores_dict
-
     def create_invoice(self):
         tax = .06
         subtotal = (sum(self.items.values()))
@@ -98,11 +91,6 @@ class Invoice:
             print(key,'....${0:.2f}'.format(value))
         print('Tax.........${0:.2f}'.format(tax))
         print('Total........${0:.2f}'.format(total))
-        #accum = 0
-        #for value in scores_dict.values():
-            #accum = accum + value
-        #average = accum / x
-        #return average
 
 
 # Driver code
@@ -111,4 +99,11 @@ if __name__== "__main__":
     invoice.add_item({'iPad': 799.99})
     invoice.add_item({'Surface': 999.99})
     invoice.create_invoice()
-    #print(invoice.items)
+
+'''
+Output:
+iPad.....$799.99
+Surface.....$999.99
+Tax......... $108.00
+Total.......$1907.98
+'''

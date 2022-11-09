@@ -1,7 +1,7 @@
 '''
 Program: invoice.py
 Author: Joshua M. McGinley
-Last date modified: 11/02/2022
+Last date modified: 11/08/2022
 
 Write an Invoice class with the following data members, which are identified as required or optional in the
 constructor.
@@ -77,7 +77,7 @@ class Invoice:
         self.address = addy
 
 
-    def add_item(self, item_dict = {' ':0.0}):
+    def add_item(self, item_dict = {'':0.0}):
         self.items.update(item_dict)
 
 
